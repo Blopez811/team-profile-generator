@@ -1,31 +1,112 @@
 const inquirer = require('inquirer');
+const Engineer = require('./lib/Engineer');
+const Manager = require('./lib/Manager');
+const Intern = require('./lib/Intern')
+function questions() {
 inquirer
     .prompt([
         {
-            type: 'input',
-            name: 'manager name',
-            message: "What is the team manager's name?"
-        },
-        {
-            type: 'input',
-            name: 'employee ID',
-            message: "What is the team manager's employee ID?"
-        },
-        {
-            type: 'input',
-            name: 'email address',
-            message: "What is the team manager's email address?"
-        },
-        {
-            type: 'input',
-            name: 'office number',
-            message: "What is the team manager's office number?"
-        },
-        {
             type: 'list',
-            name: 'menu',
-            message: "What would you like to do next?",
-            choices: ['add an engineer', 'add an intern', 'finish building my team']
-        }   
+            name: 'employeeType',
+            message: "What type of employee is this?",
+            choices: ['manager', 'engineer', 'intern']
+        },
+        {
+            type: 'input',
+            name: 'employeeName',
+            message: "What is the employee's name?"
+        },
+        {
+            type: 'input',
+            name: 'employeeID',
+            message: "What is the employee's employee ID?"
+        },
+        {
+            type: 'input',
+            name: 'employeeEmail',
+            message: "What is the employee's email address?"
+        }
+        // {
+        //     type: 'input',
+        //     name: 'officeNumber',
+        //     message: "What is the employee's office number?"
+        // },
+        // {
+        //     type: 'list',
+        //     name: 'menu',
+        //     message: "What would you like to do next?",
+        //     choices: ['add an engineer', 'add an intern', 'finish building my team']
+        // }   
     ])
-    
+    .then((initialAnswers) => {
+        if (initialAnswers.employeeType === 'manager') {
+            inquirer.prompt([
+                {
+                    type: 'input',
+                    name: 'officeNumber',
+                    message: "What is the employee's office number?"
+                },
+                {
+                    type: 'list',
+                    name: 'menu',
+                    message: "What would you like to do next?",
+                    choices: ['add another employee', 'finish building my team']
+                }
+            ])
+            .then((managerAnswers) => {
+                let manager1 = new Manager(initialAnswers.employeeName, initialAnswers.employeeID, initialAnswers.employeeEmail, managerAnswers.officeNumber);
+                console.log(manager1);
+                if(managerAnswers.menu === 'add another employee') {
+                    questions();
+                }
+            })
+
+
+        }
+        else if(initialAnswers.employeeType === 'engineer') {
+            inquirer.prompt([
+                {
+                    type: 'input',
+                    name: 'gitHub',
+                    message: 'What is your Github username?'
+                },
+                {
+                    type: 'list',
+                    name: 'menu',
+                    message: "What would you like to do next?",
+                    choices: ['add another employee', 'finish building my team']
+                }
+            ])
+            .then((engineerAnswers) => {
+                let engineer1 = new Engineer(initialAnswers.employeeName, initialAnswers.employeeID, initialAnswers.employeeEmail, engineerAnswers.gitHub);
+                console.log(engineer1);
+                if(engineerAnswers.menu === 'add another employee') {
+                    questions();
+                } 
+            })
+        }
+        else if(initialAnswers.employeeType === 'intern') {
+            inquirer.prompt([
+                {
+                    type: 'input',
+                    name: 'school',
+                    message: 'What school are you attending?'
+                },
+                {
+                    type: 'list',
+                    name: 'menu',
+                    message: "What would you like to do next?",
+                    choices: ['add another employee', 'finish building my team']
+                }
+            ])
+            .then((internAnswers) => {
+                let intern1 = new Intern(initialAnswers.employeeName, initialAnswers.employeeID, initialAnswers.employeeEmail, internAnswers.school);
+                console.log(intern1);
+                if(internAnswers.menu === 'add another employee') {
+                    questions();
+                } 
+            })
+        }
+    })
+}
+questions();
