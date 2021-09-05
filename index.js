@@ -59,7 +59,7 @@ inquirer
                 if(managerAnswers.menu === 'add another employee') {
                     questions();
                 } else {
-                    generateCards();
+                    // generateCards();
                 }
             })
 
@@ -85,7 +85,7 @@ inquirer
                 if(engineerAnswers.menu === 'add another employee') {
                     questions();
                 } else {
-                    generateCards();
+                    // generateCards();
                 }
             })
         }
@@ -109,7 +109,7 @@ inquirer
                 if(internAnswers.menu === 'add another employee') {
                     questions();
                 } else {
-                    generateCards();
+                    // generateCards();
                 }
             })
         }
