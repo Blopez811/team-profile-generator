@@ -58,6 +58,8 @@ inquirer
                 console.log(manager1);
                 if(managerAnswers.menu === 'add another employee') {
                     questions();
+                } else {
+                    generateCards();
                 }
             })
 
@@ -82,7 +84,9 @@ inquirer
                 console.log(engineer1);
                 if(engineerAnswers.menu === 'add another employee') {
                     questions();
-                } 
+                } else {
+                    generateCards();
+                }
             })
         }
         else if(initialAnswers.employeeType === 'intern') {
@@ -104,7 +108,9 @@ inquirer
                 console.log(intern1);
                 if(internAnswers.menu === 'add another employee') {
                     questions();
-                } 
+                } else {
+                    generateCards();
+                }
             })
         }
     })
