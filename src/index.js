@@ -1,6 +1,8 @@
 const application = require('../index');
 const fs = require('fs')
 const generatePage = (team) => {
+    console.log('generatepage')
+    console.log(team);
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -22,39 +24,8 @@ const generatePage = (team) => {
         </nav>
     
         <div>
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
-            </div>
+           
+        ${generateCards(team)}
     
         </div>
     
@@ -64,18 +35,23 @@ const generatePage = (team) => {
     `;
   };
 const generateCards = (team) => {
+    console.log('generateCards')
+    console.log(team)
+    console.log(team[0].name)
+    let htmlCard = ''
     for(let i = 0; i < team.length; i++) {
-       return `<div class="card" style="width: 18rem;">
+      htmlCard += `<div class="card" style="width: 18rem;">
        <div class="card-body">
-           <h5 class="card-title">${teamArray[i].employeeName}</h5>
-           <h6 class="card-subtitle mb-2 text-muted">${teamArray[i].employeeType}</h6>
+           <h5 class="card-title">${team[i].name}</h5>
+           <h6 class="card-subtitle mb-2 text-muted">${team[i].constructor.name}</h6>
            <p class="card-text">
-           id: ${teamArray[i].employeeID}
-           Email: ${teamArray[i].employeeEmail}
+           id: ${team[i].Id}
+           Email: ${team[i].email}
            </p>
            <a href="#" class="card-link">Card link</a>
            <a href="#" class="card-link">Another link</a>
        </div>` 
     }
+    return htmlCard
 }
   module.exports = generatePage

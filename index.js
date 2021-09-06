@@ -116,7 +116,8 @@ inquirer
                 if(internAnswers.menu === 'add another employee') {
                     questions();
                 } else {
-                    generatePage(teamArray);
+                    let html = generatePage(teamArray);
+                    console.log(html)
                     console.log(teamArray);
                 }
             })
