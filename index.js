@@ -62,7 +62,8 @@ inquirer
                 if(managerAnswers.menu === 'add another employee') {
                     questions();
                 } else {
-                    generatePage();
+                    generatePage(teamArray);
+                    console.log(teamArray)
                 }
             })
 
@@ -89,7 +90,8 @@ inquirer
                 if(engineerAnswers.menu === 'add another employee') {
                     questions();
                 } else {
-                    generatePage();
+                    generatePage(teamArray);
+                    console.log(teamArray);
                 }
             })
         }
@@ -114,7 +116,8 @@ inquirer
                 if(internAnswers.menu === 'add another employee') {
                     questions();
                 } else {
-                    generatePage();
+                    generatePage(teamArray);
+                    console.log(teamArray);
                 }
             })
         }

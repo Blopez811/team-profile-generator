@@ -1,4 +1,5 @@
 const application = require('../index');
+const fs = require('fs')
 const generatePage = (team) => {
     return `
     <!DOCTYPE html>
@@ -62,5 +63,19 @@ const generatePage = (team) => {
     </html>
     `;
   };
-
+const generateCards = (team) => {
+    for(let i = 0; i < team.length; i++) {
+       return `<div class="card" style="width: 18rem;">
+       <div class="card-body">
+           <h5 class="card-title">${teamArray[i].employeeName}</h5>
+           <h6 class="card-subtitle mb-2 text-muted">${teamArray[i].employeeType}</h6>
+           <p class="card-text">
+           id: ${teamArray[i].employeeID}
+           Email: ${teamArray[i].employeeEmail}
+           </p>
+           <a href="#" class="card-link">Card link</a>
+           <a href="#" class="card-link">Another link</a>
+       </div>` 
+    }
+}
   module.exports = generatePage
