@@ -38,6 +38,15 @@ const generateCards = (team) => {
     console.log('generateCards')
     console.log(team)
     console.log(team[0].name)
+    function displayExtraInfo() {
+        if(team.constructor.name === 'Manager') {
+            return `Office number: ${team.number}`
+        } else if(team.constructor.name === 'Engineer') {
+            return `Github: ${team.github}`
+        } else if(team.constructor.name === 'Intern'){
+            return `School: ${team.school}`
+        }
+    }
     let htmlCard = ''
     for(let i = 0; i < team.length; i++) {
       htmlCard += `<div class="card" style="width: 18rem;">
@@ -47,6 +56,7 @@ const generateCards = (team) => {
            <p class="card-text">
            id: ${team[i].Id}
            Email: ${team[i].email}
+           ${displayExtraInfo()}
            </p>
        </div>` 
     }
