@@ -56,7 +56,7 @@ const generateCards = (team) => {
            <p class="card-text">
            id: ${team[i].Id}
            Email: ${team[i].email}
-           ${displayExtraInfo()}
+           ${displayExtraInfo(team[i])}
            </p>
        </div>` 
     }
