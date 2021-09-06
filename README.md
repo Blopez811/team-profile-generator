@@ -20,7 +20,7 @@
     Run the index.js file at the root of the application with node. Answer the questions about team members that your are prompted with and then an HTML page will be generated based on the information you provide.
 
     Here is a link to the walk through vide of the application:
-    https://youtu.be/itNXBsKjB_I
+    [Youtube Link](https://youtu.be/itNXBsKjB_I)
 
   ## License  
     This application does not have a specific license at this time.
