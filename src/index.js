@@ -55,7 +55,7 @@ const generateCards = (team) => {
            <h6 class="card-subtitle mb-2 text-muted">${team[i].constructor.name}</h6>
            <p class="card-text">
            id: ${team[i].Id}
-           Email: ${team[i].email}
+           Email: <a href="mailto:${team[i].email}">${team[i].email}</a>
            ${displayExtraInfo(team[i])}
            </p>
        </div>` 
