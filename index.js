@@ -1,9 +1,11 @@
+const fs = require('fs');
 const inquirer = require('inquirer');
 const Engineer = require('./lib/Engineer');
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 const generatePage = require('./src/index')
 let teamArray = [] //empty. We'll push each new employee in here.
+
 function questions() {
 inquirer
     .prompt([
@@ -62,7 +64,17 @@ inquirer
                 if(managerAnswers.menu === 'add another employee') {
                     questions();
                 } else {
-                    generatePage(teamArray);
+                    let html = generatePage(teamArray);
+                    // console.log(html);
+                    fs.writeFile("index.html", html, function(err) {
+
+                        if (err) {
+                          return console.log(err);
+                        }
+                      
+                        console.log("Done!");
+                      
+                      });
                     console.log(teamArray)
                 }
             })
@@ -90,7 +102,17 @@ inquirer
                 if(engineerAnswers.menu === 'add another employee') {
                     questions();
                 } else {
-                    generatePage(teamArray);
+                    let html = generatePage(teamArray);
+                    // console.log(html);
+                    fs.writeFile("index.html", html, function(err) {
+
+                        if (err) {
+                          return console.log(err);
+                        }
+                      
+                        console.log("Done!");
+                      
+                      });
                     console.log(teamArray);
                 }
             })
@@ -117,11 +139,17 @@ inquirer
                     questions();
                 } else {
                     let html = generatePage(teamArray);
-                    console.log(html)
+                    // console.log(html);
+                    fs.writeFile("index.html", html, function(err) {
+
+                        if (err) {
+                          return console.log(err);
+                        }
+                      });
                     console.log(teamArray);
                 }
             })
         }
     })
-}
+};
 questions();
