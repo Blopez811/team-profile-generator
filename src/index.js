@@ -42,7 +42,7 @@ const generateCards = (team) => {
         if(teamMember.constructor.name === 'Manager') {
             return `Office number: ${teamMember.number}`
         } else if(teamMember.constructor.name === 'Engineer') {
-            return `Github: ${teamMember.github}`
+            return `Github: ${teamMember.gitHub}`
         } else if(teamMember.constructor.name === 'Intern'){
             return `School: ${teamMember.school}`
         }
