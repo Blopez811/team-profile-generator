@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const Engineer = require('./lib/Engineer');
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
+const generatePage = require('./src/index')
 let teamArray = [] //empty. We'll push each new employee in here.
 function questions() {
 inquirer
