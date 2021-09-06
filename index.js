@@ -1,7 +1,8 @@
 const inquirer = require('inquirer');
 const Engineer = require('./lib/Engineer');
 const Manager = require('./lib/Manager');
-const Intern = require('./lib/Intern')
+const Intern = require('./lib/Intern');
+let teamArray = [] //empty. We'll push each new employee in here.
 function questions() {
 inquirer
     .prompt([
@@ -56,10 +57,11 @@ inquirer
             .then((managerAnswers) => {
                 let manager1 = new Manager(initialAnswers.employeeName, initialAnswers.employeeID, initialAnswers.employeeEmail, managerAnswers.officeNumber);
                 console.log(manager1);
+                teamArray.push(manager1);
                 if(managerAnswers.menu === 'add another employee') {
                     questions();
                 } else {
-                    // generateCards();
+                    generatePage();
                 }
             })
 
@@ -82,10 +84,11 @@ inquirer
             .then((engineerAnswers) => {
                 let engineer1 = new Engineer(initialAnswers.employeeName, initialAnswers.employeeID, initialAnswers.employeeEmail, engineerAnswers.gitHub);
                 console.log(engineer1);
+                teamArray.push(engineer1)
                 if(engineerAnswers.menu === 'add another employee') {
                     questions();
                 } else {
-                    // generateCards();
+                    generatePage();
                 }
             })
         }
@@ -106,10 +109,11 @@ inquirer
             .then((internAnswers) => {
                 let intern1 = new Intern(initialAnswers.employeeName, initialAnswers.employeeID, initialAnswers.employeeEmail, internAnswers.school);
                 console.log(intern1);
+                teamArray.push(intern1);
                 if(internAnswers.menu === 'add another employee') {
                     questions();
                 } else {
-                    // generateCards();
+                    generatePage();
                 }
             })
         }

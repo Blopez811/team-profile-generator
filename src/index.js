@@ -1,4 +1,5 @@
-const generatePage = (name, github) => {
+const application = require('../index');
+const generatePage = (team) => {
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -61,3 +62,5 @@ const generatePage = (name, github) => {
     </html>
     `;
   };
+
+  module.exports = generatePage
