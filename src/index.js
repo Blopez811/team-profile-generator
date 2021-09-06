@@ -38,13 +38,13 @@ const generateCards = (team) => {
     console.log('generateCards')
     console.log(team)
     console.log(team[0].name)
-    function displayExtraInfo(team) {
-        if(team[i].constructor.name === 'Manager') {
-            return `Office number: ${team[i].number}`
-        } else if(team[i].constructor.name === 'Engineer') {
-            return `Github: ${team[i].github}`
-        } else if(team[i].constructor.name === 'Intern'){
-            return `School: ${team[i].school}`
+    function displayExtraInfo(teamMember) {
+        if(teamMember.constructor.name === 'Manager') {
+            return `Office number: ${teamMember.number}`
+        } else if(teamMember.constructor.name === 'Engineer') {
+            return `Github: ${teamMember.github}`
+        } else if(teamMember.constructor.name === 'Intern'){
+            return `School: ${teamMember.school}`
         }
     }
     let htmlCard = ''
