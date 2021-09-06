@@ -19,7 +19,7 @@ const generatePage = (team) => {
     <body>
         <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1">Navbar</span>
+                <span class="navbar-brand mb-0 h1">Team</span>
             </div>
         </nav>
     
@@ -48,8 +48,6 @@ const generateCards = (team) => {
            id: ${team[i].Id}
            Email: ${team[i].email}
            </p>
-           <a href="#" class="card-link">Card link</a>
-           <a href="#" class="card-link">Another link</a>
        </div>` 
     }
     return htmlCard
